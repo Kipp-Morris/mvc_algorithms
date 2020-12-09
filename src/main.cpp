@@ -4,9 +4,9 @@
 #include <set>
 #include <string>
 
-#include "branch_and_bound.h"
-#include "graph.h"
-#include "graph_utils.h"
+#include "branch_and_bound.hpp"
+#include "graph.hpp"
+#include "graph_utils.hpp"
 
 using namespace std;
 using namespace std::chrono;

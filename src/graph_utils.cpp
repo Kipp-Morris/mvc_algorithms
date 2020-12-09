@@ -4,7 +4,7 @@
 #include <sstream>
 #include <string>
 
-#include "graph.h"
+#include "graph.hpp"
 
 using namespace std;
 

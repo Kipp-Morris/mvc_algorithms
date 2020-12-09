@@ -6,8 +6,8 @@
 #include <string>
 #include <queue>
 
-#include "graph.h"
-#include "graph_utils.h"
+#include "graph.hpp"
+#include "graph_utils.hpp"
 
 using namespace std;
 using namespace std::chrono;

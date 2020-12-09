@@ -4,7 +4,7 @@
 #include <set>
 #include <string>
 
-#include "graph.h"
+#include "graph.hpp"
 
 Graph *create_graph_from_metis_io(std::string filename);
 Graph *get_subgraph(Graph *G, std::set<int> *V_prime);
