@@ -52,7 +52,7 @@ set<int> * get_vertex_cover_set(map<int, bool> *vc_map) {
 }
 
 set<int> * branch_and_bound(Graph *G, string out_filename, high_resolution_clock::time_point start_time, duration<double> cutoff_time, string cutoff_time_str, double *sol_time_ptr) {  
-  ofstream trace_file (out_filename + ".trace");
+  ofstream trace_file ("results/traces/" + out_filename + ".trace");
 
   // Create a list of vertices sorted in order of decreasing degree
   // so the algorithm can consider the vertices in that order

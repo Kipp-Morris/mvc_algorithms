@@ -53,7 +53,7 @@ int main(int argc, char* argv[]) {
 
     set<int> *vc = branch_and_bound(G, out_filename, start_time, cutoff_time, cutoff_time_str, sol_time);
     
-    ofstream sol_file (out_filename + ".sol");
+    ofstream sol_file ("results/solutions/" + out_filename + ".sol");
     sol_file << (*sol_time) << "," << vc->size() << "\n";
     sol_file.close();
 
