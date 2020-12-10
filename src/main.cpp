@@ -4,6 +4,7 @@
 #include <set>
 #include <string>
 
+#include "approx.hpp"
 #include "branch_and_bound.hpp"
 #include "graph.hpp"
 #include "graph_utils.hpp"
@@ -60,7 +61,32 @@ int main(int argc, char* argv[]) {
     delete sol_time;
     delete vc;
     delete G;
-  }    
+  } else if ((input_file != "") && (alg == "approx")) {
+    high_resolution_clock::time_point start_time = high_resolution_clock::now();
+    Graph *G = create_graph_from_metis_io(input_file);
+    double *sol_time = new double;
+
+    size_t pos = 0;
+    string token;
+    string s = input_file;
+    string delimiter = "/";
+    while ((pos = s.find(delimiter)) != string::npos) {
+      token = s.substr(0, pos);
+      s.erase(0, pos + delimiter.length());
+    }
+    
+    string out_filename = s.substr(0, s.size() - 6) + "_approx_" + cutoff_time_str;
+
+    set<int> *vc = approximation_algorithm(G, out_filename, start_time, sol_time);
+
+    ofstream sol_file ("results/solutions/" + out_filename + ".sol");
+    sol_file << (*sol_time) << "," << vc->size() << "\n";
+    sol_file.close();
+
+    delete sol_time;
+    delete vc;
+    delete G;
+  }
   
   return 0;
 }
